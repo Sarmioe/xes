@@ -1,0 +1,64 @@
+#induce xdw-2d
+#induce window-program
+#induce pritore
+#appicon address = ./icons.xpk --unzip-filename-icon.png
+#config files address = /Local/Settings/config.xac
+start_the_progeram
+load_display_drivceses
+all_load_end
+new-window(type=default){
+    max-width=zedone;
+    max-height=zedone;
+    min-width=300pixels;
+    min-height=500pixels;
+    manywindows=no;
+    canmin=yes;
+    canmax=yes;
+    canoff=yes;
+}
+new-window:center(name=homepage){
+    #midendos comtions
+    new-option(name=Basis){
+       text(font=default;size=30pixels;type=title;text="Basis";code=utf-8;);
+	   text(font=default;size=20pixels;type=title;text="Basic settings.";code=utf-8;);
+    }
+	new-option(name=Internet){
+       text(font=default;size=30pixels;type=title;text="Internet";code=utf-8;);
+	   text(font=default;size=20pixels;type=title;text="Experence ths greatest inventon of manknd in the 20th century!";code=utf-8;);
+    }
+	new-option(name=Applications){
+       text(font=default;size=30pixels;type=title;text="Applications";code=utf-8;);
+	   text(font=default;size=20pixels;type=title;text="Manage,reset,confgure all applications on the computer!";code=utf-8;);
+    }
+	new-option(name=Safe-and-update){
+       text(font=default;size=30pixels;type=title;text="Safe & Update";code=utf-8;);
+	   text(font=default;size=20pixels;type=title;text="Keep your computer softwares are newest and you computer safely.";code=utf-8;);
+    }
+    style(){
+        #proments advanced.
+		#background(color=white;);
+        generally($new-option){
+            frame(size=20pixels;edge=round;edge-pixels=15pixels;color=black;);
+        }
+        hover($new-option){
+            frame(size=20pixels;edge=round;edge-pixels=15pixels;color=black;shadow=center;);
+        }
+        selected($new-option){
+            frame(size=20pixels;edge=round;edge-pixels=15pixels;color=black;shadow=no;shadow-color=skyblue;);
+        }
+    }
+}
+pressed(element=[Basis];z-index=2;){
+    new-option:left(name=Back){
+	   text(font=default;size=30pixels;type=title;text="<- Back";code=utf-8;);
+	   pressed:new-window:right:from:Back(){
+>>END_OF_PRESSED. --GO_BACK-WINDOW-homepage
+       }
+       text(font=default;size=30pixels;type=title;text="About XES";code=utf-8;);
+	   pressed:new-window:right:from:About(selected=default){
+	           $installtime=$_GETSYSTEMDATE["installationdate"];
+           	   text(font=default;size=30pixels;type=title;text="About XES";code=utf-8;);
+			   text(font=default;size=20pixels;type=title;text="Code name:ANEWSTART""Version number: 0.1.0""Full version name:XES ANEWSTART V0.1.0 RELEASED""Installation date: $installtime";code=utf-8;);
+    }
+}
+>>END_OF_FILE.

@@ -1,0 +1,73 @@
+#induce xdw-2d
+#induce window-program
+#induce pritore
+#appicon address = ./icons.xpk --unzip-filename-icon.png
+#config files address = /Local/Flies Explorer/config.xac
+start_the_progeram
+load_display_drivceses
+all_load_end
+new-window(type=default){
+    max-width=zedone;
+    max-height=zedone;
+    min-width=300pixels;
+    min-height=500pixels;
+    manywindows=yes;
+    canmin=yes;
+    canmax=yes;
+    canoff=yes;
+}
+new-window:left(left=150pixels){
+    #midendos comtions
+    new-option(name=home){
+        $origens-to-right();
+    }
+    new-option(name=pictures){
+        $origens-to-right();
+    }
+    new-option(name=downloads){
+        $origens-to-right();
+    }
+    new-option(name=desktop){
+        $origens-to-right();
+    }
+    new-option(name=documents){
+        $origens-to-right();
+    }
+    new-option(name=parts){
+        $origens-to-right();
+    }
+    new-option(name=internet-files){
+        $origens-to-right();
+    }
+    style(){
+        #proments advanced.
+		#icon=./icons.xpk -unzip-to-memory-01
+		#background(color=white;);
+        generally($new-option){
+            imagedisplay(= -memory-01-home.png
+            right-text="$new-option:name")
+            background-color=#ffffff;
+        }
+        hover($new-option){
+            imagedisplay(= -memory-01-home.png
+            right-text="$new-option:name")
+            background-color=#87CEEB;
+        }
+        selected($new-option){
+            imagedisplay(= -memory-01-home.png
+            right-text="$new-option:name")
+            background-color=#0000ff;
+        }
+    }
+}
+new-window:right(){
+    #induce defaultstyles
+    $nowusername=$_GETSYSTEMDATE["nowusername"];
+	$optionname=$_GETSELECTDATE["new-option"];
+    new-option(selected=Home){
+    listfiles-address="/Users/$nowusername/$optionname";
+    listfiles-option=all;
+	display-files-type=yes;
+    }
+}
+>>END_OF_FILE.

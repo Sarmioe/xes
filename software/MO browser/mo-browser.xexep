@@ -1,0 +1,27 @@
+#induce xdw-2d
+#induce xdw-3d
+#induce window-program
+#induce audio
+#induce video
+#induce clipboard
+#induce encryption
+#induce download
+#induce rendering
+#induce pritore
+#appicon address = ./icons.xpk --unzip-filename-icon.png
+#config files address = /Local/MO browser/config.xac
+start_the_progeram
+load_display_drivceses
+load_audio_drivceses
+load_disk_drivceses
+all_load_end
+new-window(type=default){
+    max-width=zedone;
+    max-height=zedone;
+    min-width=300pixels;
+    min-height=500pixels;
+    manywindows=yes;
+    canmin=yes;
+    canmax=yes;
+    canoff=yes;
+}
